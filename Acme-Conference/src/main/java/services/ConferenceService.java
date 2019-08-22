@@ -288,4 +288,9 @@ public class ConferenceService {
 	public Double stdDevConferencePerCategory() {
 		return this.conferenceRepository.stdDevConferencePerCategory();
 	}
+
+	public Conference getConferenceByWert(final int wertId) {
+		return this.conferenceRepository.getConferenceByWert(wertId);
+	}
+
 }

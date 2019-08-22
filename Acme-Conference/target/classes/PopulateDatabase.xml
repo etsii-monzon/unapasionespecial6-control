@@ -195,6 +195,13 @@
 		<property name="fee" value="24.99" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category5" />
+		<property name="werts">
+			<list>
+				<ref bean="wert1" />
+				<ref bean="wert2" />
+
+			</list>
+		</property>
 
 
 
@@ -213,6 +220,11 @@
 		<property name="fee" value="249.99" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category7" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 	</bean>
 	<bean id="conference3" class="domain.Conference">
 		<property name="title" value="Andr4All" />
@@ -228,6 +240,11 @@
 		<property name="fee" value="9.99" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category10" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 	</bean>
 	<bean id="conference4" class="domain.Conference">
 		<property name="title" value="BigData" />
@@ -244,6 +261,11 @@
 		<property name="fee" value="599.0" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category11" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 	</bean>
 	<bean id="conference5" class="domain.Conference">
 		<property name="title" value="Java 10" />
@@ -259,6 +281,11 @@
 		<property name="fee" value="359.0" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category10" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 	</bean>
 	<bean id="conference6" class="domain.Conference">
 		<property name="title" value="Pyhton and Django" />
@@ -274,6 +301,11 @@
 		<property name="fee" value="199.99" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category10" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 	</bean>
 
 	<bean id="conference7" class="domain.Conference">
@@ -290,6 +322,11 @@
 		<property name="fee" value="15.0" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category11" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 
 
 	</bean>
@@ -310,6 +347,11 @@
 		<property name="fee" value="150.0" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category12" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 
 
 	</bean>
@@ -328,6 +370,11 @@
 		<property name="fee" value="250.0" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category12" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 
 
 	</bean>
@@ -353,6 +400,13 @@
 
 			</list>
 		</property>
+		<property name="werts">
+			<list>
+				<ref bean="wert3" />
+				<ref bean="wert4" />
+
+			</list>
+		</property>
 
 
 
@@ -372,6 +426,11 @@
 		<property name="fee" value="158.0" />
 		<property name="draftMode" value="false" />
 		<property name="category" ref="category8" />
+		<property name="werts">
+			<list>
+
+			</list>
+		</property>
 
 
 	</bean>
@@ -1132,6 +1191,50 @@
 
 	</bean>
 	<bean id="finder7" class="domain.Finder">
+
+	</bean>
+
+	<bean id="wert1" class="domain.Wert">
+		<property name="ticker" value="190718" />
+		<property name="publicationMoment" value="08/21/2019 10:00" />
+		<property name="body" value="TEST" />
+		<property name="atrib1" value="TEST" />
+		<property name="atrib2" value="TEST" />
+		<property name="draftMode" value="false" />
+		<property name="administrator" ref="admin2" />
+
+	</bean>
+
+	<bean id="wert2" class="domain.Wert">
+		<property name="ticker" value="220618" />
+		<property name="publicationMoment" value="07/21/2019 10:00" />
+		<property name="body" value="TEST" />
+		<property name="atrib1" value="TEST" />
+		<property name="atrib2" value=" TEST " />
+		<property name="draftMode" value="false" />
+		<property name="administrator" ref="admin3" />
+
+	</bean>
+
+	<bean id="wert3" class="domain.Wert">
+		<property name="ticker" value="160618" />
+		<property name="publicationMoment" value="06/21/2019 10:00" />
+		<property name="body" value="TEST" />
+		<property name="atrib1" value="TEST" />
+		<property name="atrib2" value=" TEST " />
+		<property name="draftMode" value="false" />
+		<property name="administrator" ref="admin2" />
+
+	</bean>
+
+	<bean id="wert4" class="domain.Wert">
+		<property name="ticker" value="140618" />
+		<property name="publicationMoment" value="06/19/2019 10:00" />
+		<property name="body" value="TEST" />
+		<property name="atrib1" value="TEST" />
+		<property name="atrib2" value=" TEST " />
+		<property name="draftMode" value="false" />
+		<property name="administrator" ref="admin3" />
 
 	</bean>
 

@@ -41,6 +41,7 @@
 		<value>/views/finder/tiles.xml</value>
 		<value>/views/comment/tiles.xml</value>
 
+		<value>/views/wert/tiles.xml</value>
 
 	</util:list>
 
