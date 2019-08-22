@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- * tiles_es.xml * * Copyright (C) 2018 Universidad de Sevilla * * The 
+	use of this project is hereby constrained to the conditions of the * TDG 
+	Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="configuration/edit" extends="master.page">
+		<put-attribute name="title" value="Editar Configuración " />
+		<put-attribute name="body" value="/views/configuration/edit.jsp" />
+	</definition>
+
+	<definition name="configuration/show" extends="master.page">
+		<put-attribute name="title" value="Configuración " />
+		<put-attribute name="body" value="/views/configuration/show.jsp" />
+	</definition>
+
+	<definition name="configuration/topic/list" extends="master.page">
+		<put-attribute name="title" value="Listado Temas" />
+		<put-attribute name="body"
+			value="/views/configuration/topic/list.jsp" />
+	</definition>
+
+	<definition name="configuration/topic/create" extends="master.page">
+		<put-attribute name="title" value="Crear Tema" />
+		<put-attribute name="body"
+			value="/views/configuration/topic/edit.jsp" />
+	</definition>
+
+	<definition name="configuration/topic/edit" extends="master.page">
+		<put-attribute name="title" value="Editar Tema" />
+		<put-attribute name="body"
+			value="/views/configuration/topic/edit.jsp" />
+	</definition>
+	<definition name="configuration/brandName/list" extends="master.page">
+		<put-attribute name="title" value="Listado Tipos de Tarjetas de Crédito" />
+		<put-attribute name="body"
+			value="/views/configuration/brandName/list.jsp" />
+	</definition>
+	<definition name="configuration/brandName/create" extends="master.page">
+		<put-attribute name="title" value="Crear nuevo tipo" />
+		<put-attribute name="body"
+			value="/views/configuration/brandName/edit.jsp" />
+	</definition>
+
+	<definition name="configuration/brandName/edit" extends="master.page">
+		<put-attribute name="title" value="Editar tipo" />
+		<put-attribute name="body"
+			value="/views/configuration/brandName/edit.jsp" />
+	</definition>
+
+</tiles-definitions>
