@@ -152,7 +152,7 @@
 
 	<display:column titleKey="conference.werts">
 
-		<a href="wert/administrator/list.do?conferenceId=${row.id}"> <spring:message
+		<a href="wert/list.do?conferenceId=${row.id}"> <spring:message
 				code="conference.werts" />
 		</a>
 
