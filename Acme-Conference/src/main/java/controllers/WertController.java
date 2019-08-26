@@ -51,7 +51,7 @@ public class WertController extends AbstractController {
 		result.addObject("dosMeses", dosMeses);
 
 		result.addObject("conferenceId", conferenceId);
-		//		result.addObject("requestURI", "wert/administrator/list.do");
+		result.addObject("requestURI", "wert/list.do");
 		//		result.addObject("admin", this.administartorService.findByPrincipal());
 
 		return result;

@@ -23,7 +23,7 @@ public interface WertRepository extends JpaRepository<Wert, Integer> {
 	//XXX versus XXX
 	//	@Query("select sum(case when f.processions.size = 0 then 1.0 else 0.0 end)/sum(case when f.processions.size > 0 then 1.0 else 0.0 end) from Finder f")
 	//	String dashboardQueryB3();
-	@Query("select sum(case when p.draftMode = 1 then 1.0 else 0.0 end)/sum(case when p.draftMode = 0 then 1.0 else 0.0 end) from Wert p")
-	Double dashboardQueryAcmeParadeB4();
+	//	@Query("select sum(case when p.draftMode = 1 then 1.0 else 0.0 end)/sum(case when p.draftMode = 0 then 1.0 else 0.0 end) from Wert p")
+	//	Double dashboardQueryAcmeParadeB4();
 
 }

@@ -152,9 +152,17 @@
 
 	<display:column titleKey="conference.werts">
 
-		<a href="wert/list.do?conferenceId=${row.id}"> <spring:message
-				code="conference.werts" />
-		</a>
+		<security:authorize access="!hasRole('ADMIN')">
+			<a href="wert/list.do?conferenceId=${row.id}"> <spring:message
+					code="conference.werts" />
+			</a>
+		</security:authorize>
+
+		<security:authorize access="hasRole('ADMIN')">
+			<a href="wert/administrator/list.do?conferenceId=${row.id}"> <spring:message
+					code="conference.werts" />
+			</a>
+		</security:authorize>
 
 	</display:column>
 </display:table>
