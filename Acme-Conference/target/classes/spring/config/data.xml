@@ -33,9 +33,9 @@
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl"
-			value="mysql://bkxm7duen6ano8rmsov7-mysql.services.clever-cloud.com:3306/bkxm7duen6ano8rmsov7" />
-		<property name="user" value="uubx7dyojwhyekm1" />
-		<property name="password" value="OkVLElEKjwbLK7QedrsK" />
+			value="jdbc:mysql://byeyody3xsgaljrg8ud4-mysql.services.clever-cloud.com:3306/byeyody3xsgaljrg8ud4" />
+		<property name="user" value="uh9qg9in108cvdpl" />
+		<property name="password" value="BNJptngIMLtN6LyI43T0" />
 		<property name="minPoolSize" value="1" />
 		<property name="maxPoolSize" value="5" />
 	</bean> 
