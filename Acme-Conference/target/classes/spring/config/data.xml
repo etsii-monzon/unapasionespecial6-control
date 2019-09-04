@@ -21,25 +21,25 @@
 
 	<!-- Data source -->
 
-	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" 
+	  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" 
 		destroy-method="close"> <property name="driverClass" value="com.mysql.jdbc.Driver" 
 		/> <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/Acme-Conference" 
 		/> <property name="user" value="acme-user" /> <property name="password" value="ACME-Us3r-P@ssw0rd" 
 		/> <property name="minPoolSize" value="1" /> <property name="maxPoolSize" 
-		value="5" /> </bean> -->
+		value="5" /> </bean> 
 	<!-- CLEVER -->
 
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl"
-			value="jdbc:mysql://bbezpxtvawzlasmpbc34-mysql.services.clever-cloud.com:3306/bbezpxtvawzlasmpbc34" />
-		<property name="user" value="u35hq1uzev6xb5vf" />
-		<property name="password" value="ptli5Gp98FisQIoThVqE" />
+			value="jdbc:mysql://byeyody3xsgaljrg8ud4-mysql.services.clever-cloud.com:3306/byeyody3xsgaljrg8ud4" />
+		<property name="user" value="uh9qg9in108cvdpl" />
+		<property name="password" value="BNJptngIMLtN6LyI43T0" />
 		<property name="minPoolSize" value="1" />
 		<property name="maxPoolSize" value="5" />
-	</bean>
-
+	</bean> 
+ -->
 	<!-- JPA -->
 
 	<bean id="persistenceUnit" class="java.lang.String">
