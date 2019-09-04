@@ -1,6 +1,7 @@
 
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -38,8 +39,12 @@ public class WertController extends AbstractController {
 		ModelAndView result;
 		final Date mes = new DateTime().minusMonths(1).toDate();
 		final Date dosMeses = new DateTime().minusMonths(2).toDate();
+		final Collection<Wert> werts = new ArrayList<>();
 
-		final Collection<Wert> werts = this.conferenceService.findOne(conferenceId).getWerts();
+		final Collection<Wert> wertsAll = this.conferenceService.findOne(conferenceId).getWerts();
+		for (final Wert w : wertsAll)
+			if (w.isDraftMode() == false)
+				werts.add(w);
 
 		result = new ModelAndView("wert/list");
 		result.addObject("werts", werts);
