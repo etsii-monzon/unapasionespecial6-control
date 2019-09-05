@@ -289,8 +289,8 @@ public class ConferenceService {
 		return this.conferenceRepository.stdDevConferencePerCategory();
 	}
 
-	public Conference getConferenceByWert(final int wertId) {
-		return this.conferenceRepository.getConferenceByWert(wertId);
+	public Conference getConferenceByLoot(final int lootId) {
+		return this.conferenceRepository.getConferenceByLoot(lootId);
 	}
 
 }

@@ -150,17 +150,17 @@
 
 	</display:column>
 
-	<display:column titleKey="conference.werts">
+	<display:column titleKey="conference.loots">
 
 		<security:authorize access="!hasRole('ADMIN')">
-			<a href="wert/list.do?conferenceId=${row.id}"> <spring:message
-					code="conference.werts" />
+			<a href="loot/list.do?conferenceId=${row.id}"> <spring:message
+					code="conference.loots" />
 			</a>
 		</security:authorize>
 
 		<security:authorize access="hasRole('ADMIN')">
-			<a href="wert/administrator/list.do?conferenceId=${row.id}"> <spring:message
-					code="conference.werts" />
+			<a href="loot/administrator/list.do?conferenceId=${row.id}"> <spring:message
+					code="conference.loots" />
 			</a>
 		</security:authorize>
 

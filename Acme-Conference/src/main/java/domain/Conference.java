@@ -33,7 +33,7 @@ public class Conference extends CommentEntity {
 	private Category			category;
 
 	//Control
-	private Collection<Wert>	werts;
+	private Collection<Loot>	loots;
 
 
 	@NotBlank
@@ -146,12 +146,12 @@ public class Conference extends CommentEntity {
 
 	@OneToMany
 	@Valid
-	public Collection<Wert> getWerts() {
-		return this.werts;
+	public Collection<Loot> getLoots() {
+		return this.loots;
 	}
 
-	public void setWerts(final Collection<Wert> werts) {
-		this.werts = werts;
+	public void setLoots(final Collection<Loot> loots) {
+		this.loots = loots;
 	}
 
 }

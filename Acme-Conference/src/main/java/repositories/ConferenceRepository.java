@@ -59,7 +59,7 @@ public interface ConferenceRepository extends JpaRepository<Conference, Integer>
 	@Query("select stddev(1.0*(select count(s) from Conference s where s.category.id=c.id)) from Category c")
 	Double stdDevConferencePerCategory();
 
-	@Query("select c from Conference c join c.werts w where w.id=?1 ")
-	Conference getConferenceByWert(int wertId);
+	@Query("select c from Conference c join c.loots w where w.id=?1 ")
+	Conference getConferenceByLoot(int lootId);
 
 }

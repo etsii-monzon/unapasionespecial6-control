@@ -10,6 +10,31 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+<h3>
+	<spring:message code="administrator.lootsConferences" />
+</h3>
+<p>
+	<spring:message code="administrator.avgLootsConf" />
+	:
+	<fmt:formatNumber value="${avgLootsConf}" />
+</p>
+<p>
+	<spring:message code="administrator.stdLootsConf" />
+	:
+	<fmt:formatNumber value="${stdLootsConf}" />
+</p>
+<p>
+	<spring:message code="administrator.ratioLootPublished" />
+	:
+	<fmt:formatNumber value="${ratioLootPublished}" />
+</p>
+<p>
+	<spring:message code="administrator.ratioLootUnpublished" />
+	:
+	<fmt:formatNumber value="${ratioLootUnpublished}" />
+</p>
+
+
 
 <h3>
 	<spring:message code="administrator.submissionsPerConference" />

@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.AdministratorService;
 import services.CommentService;
 import services.ConferenceService;
+import services.LootService;
 import services.RegistrationService;
 import services.SubmissionService;
 import domain.Administrator;
@@ -47,6 +48,9 @@ public class AdministratorAdministratorController extends AbstractController {
 
 	@Autowired
 	private CommentService			commentSevice;
+
+	@Autowired
+	private LootService				lootSevice;
 
 
 	// Constructors -----------------------------------------------------------
@@ -108,6 +112,11 @@ public class AdministratorAdministratorController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		final ModelAndView result;
+
+		final Double avgLootsConf = this.lootSevice.avgNumberLootsPerConference();
+		final Double stdLootsConf = this.lootSevice.stdNumberLootsPerConference();
+		final Double ratioLootPublished = this.lootSevice.ratioLootPublished();
+		final Double ratioLootUnpublished = this.lootSevice.ratioLootUnpublished();
 
 		final Double avgSubs = this.submService.avgSubmissionsPerConference();
 		final Integer minSubs = this.submService.minSubmissionsPerConference();
@@ -173,6 +182,11 @@ public class AdministratorAdministratorController extends AbstractController {
 		result.addObject("maxConferecePerCategory", maxConferecePerCategory);
 		result.addObject("minConferecePerCategory", minConferecePerCategory);
 		result.addObject("stdConferecePerCategory", stdConferecePerCategory);
+
+		result.addObject("avgLootsConf", avgLootsConf);
+		result.addObject("stdLootsConf", stdLootsConf);
+		result.addObject("ratioLootPublished", ratioLootPublished);
+		result.addObject("ratioLootUnpublished", ratioLootUnpublished);
 
 		return result;
 	}
