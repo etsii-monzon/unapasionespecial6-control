@@ -5,20 +5,20 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import domain.Wert;
+import domain.Romp;
 
 @Component
 @Transactional
-public class WertToStringConverter implements Converter<Wert, String> {
+public class RompToStringConverter implements Converter<Romp, String> {
 
 	@Override
-	public String convert(final Wert wert) {
+	public String convert(final Romp romp) {
 		String result;
 
-		if (wert == null)
+		if (romp == null)
 			result = null;
 		else
-			result = String.valueOf(wert.getId());
+			result = String.valueOf(romp.getId());
 
 		return result;
 	}

@@ -141,9 +141,9 @@
 		<security:intercept-url pattern="/category/administrator/**"
 			access="hasRole('ADMIN')" />
 
-		<security:intercept-url pattern="/wert/administrator/**"
+		<security:intercept-url pattern="/romp/administrator/**"
 			access="hasRole('ADMIN')" />
-			<security:intercept-url pattern="/wert/list.do"
+			<security:intercept-url pattern="/romp/list.do"
 			access="permitAll" />
 
 		<!-- Listado Conferences -->

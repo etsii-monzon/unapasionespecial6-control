@@ -19,6 +19,7 @@ import domain.Administrator;
 import domain.Category;
 import domain.Conference;
 import domain.Registration;
+import domain.Romp;
 import domain.Submission;
 
 @Service
@@ -47,6 +48,10 @@ public class ConferenceService {
 
 		Conference con;
 		con = new Conference();
+
+		final Collection<Romp> romps = new ArrayList<>();
+
+		con.setRomps(romps);
 
 		return con;
 	}
@@ -289,8 +294,8 @@ public class ConferenceService {
 		return this.conferenceRepository.stdDevConferencePerCategory();
 	}
 
-	public Conference getConferenceByWert(final int wertId) {
-		return this.conferenceRepository.getConferenceByWert(wertId);
+	public Conference getConferenceByRomp(final int rompId) {
+		return this.conferenceRepository.getConferenceByRomp(rompId);
 	}
 
 }

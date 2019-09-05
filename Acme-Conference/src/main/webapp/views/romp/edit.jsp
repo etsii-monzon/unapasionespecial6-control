@@ -14,7 +14,7 @@
 
 
 
-<form:form action="${requestURI}" modelAttribute="wert">
+<form:form action="${requestURI}" modelAttribute="romp">
 	<%-- Hidden properties from category--%>
 	<form:hidden path="id" />
 	<form:hidden path="version" />
@@ -29,7 +29,7 @@
 
 	<%-- Body --%>
 	<form:label path="body">
-		<spring:message code="wert.body" />
+		<spring:message code="romp.body" />
 	</form:label>
 	<form:input path="body" />
 	<form:errors class="error" path="body" />
@@ -38,26 +38,18 @@
 
 
 	<%-- Atrib1 --%>
-	<form:label path="atrib1">
-		<spring:message code="wert.atrib1" />
+	<form:label path="optionalPicture">
+		<spring:message code="romp.optionalPicture" />
 	</form:label>
-	<form:input path="atrib1" />
-	<form:errors class="error" path="atrib1" />
+	<form:input path="optionalPicture" />
+	<form:errors class="error" path="optionalPicture" />
 	<br>
 	<br>
 
-	<%-- Atrib2 --%>
-	<form:label path="atrib2">
-		<spring:message code="wert.atrib2" />
-	</form:label>
-	<form:input path="atrib2" />
-	<form:errors class="error" path="atrib2" />
-	<br>
-	<br>
 
 	<!-- DraftMode -->
 	<form:label path="draftMode">
-		<spring:message code="wert.draftMode" />:
+		<spring:message code="romp.draftMode" />:
 	</form:label>
 	<form:select path="draftMode">
 		<form:option value="True" label="True" />
@@ -70,11 +62,11 @@
 	<%-- Buttons --%>
 
 	<input type="submit" name="save"
-		value="<spring:message code="wert.save"/>" />
+		value="<spring:message code="romp.save"/>" />
 
 	<input type="button" name="cancel"
-		value="<spring:message code="wert.cancel" />"
-		onClick="javascript: window.location.replace('wert/administrator/list.do?conferenceId=${conferenceId}')" />
+		value="<spring:message code="romp.cancel" />"
+		onClick="javascript: window.location.replace('romp/administrator/list.do?conferenceId=${conferenceId}')" />
 
 	<br>
 	<br>

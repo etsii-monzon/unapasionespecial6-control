@@ -20,15 +20,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.AdministratorService;
 import services.ConferenceService;
-import services.WertService;
-import domain.Wert;
+import services.RompService;
+import domain.Romp;
 
 @Controller
-@RequestMapping(value = "/wert/administrator")
-public class WertAdministratorController extends AbstractController {
+@RequestMapping(value = "/romp/administrator")
+public class RompAdministratorController extends AbstractController {
 
 	@Autowired
-	private WertService				wertService;
+	private RompService				rompService;
 
 	@Autowired
 	private ConferenceService		conferenceService;
@@ -45,10 +45,10 @@ public class WertAdministratorController extends AbstractController {
 		final Date mes = new DateTime().minusMonths(1).toDate();
 		final Date dosMeses = new DateTime().minusMonths(2).toDate();
 
-		final Collection<Wert> werts = this.conferenceService.findOne(conferenceId).getWerts();
+		final Collection<Romp> romps = this.conferenceService.findOne(conferenceId).getRomps();
 
-		result = new ModelAndView("wert/list");
-		result.addObject("werts", werts);
+		result = new ModelAndView("romp/list");
+		result.addObject("romps", romps);
 
 		final String languaje = LocaleContextHolder.getLocale().getLanguage();
 		result.addObject("languaje", languaje);
@@ -57,79 +57,78 @@ public class WertAdministratorController extends AbstractController {
 		result.addObject("dosMeses", dosMeses);
 
 		result.addObject("conferenceId", conferenceId);
-		result.addObject("requestURI", "wert/administrator/list.do");
+		result.addObject("requestURI", "romp/administrator/list.do");
 		result.addObject("admin", this.administartorService.findByPrincipal());
 
 		return result;
 	}
-
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create(@RequestParam final int conferenceId) {
 		ModelAndView result;
-		Wert wert;
+		Romp romp;
 
-		wert = this.wertService.create();
+		romp = this.rompService.create();
 
-		result = this.createEditModelAndView(wert, conferenceId);
+		result = this.createEditModelAndView(romp, conferenceId);
 
 		return result;
 	}
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int wertId) {
+	public ModelAndView edit(@RequestParam final int rompId) {
 		ModelAndView result;
-		Wert wert;
-		wert = this.wertService.findOne(wertId);
+		Romp romp;
+		romp = this.rompService.findOne(rompId);
 
 		try {
-			Assert.isTrue(wert.getAdministrator().equals(this.administartorService.findByPrincipal()), "hacking");
-			Assert.isTrue(wert.isDraftMode(), "draft mode");
-			result = this.createEditModelAndView(wert, this.conferenceService.getConferenceByWert(wertId).getId());
+			Assert.isTrue(romp.getAdministrator().equals(this.administartorService.findByPrincipal()), "hacking");
+			Assert.isTrue(romp.isDraftMode(), "draft mode");
+			result = this.createEditModelAndView(romp, this.conferenceService.getConferenceByRomp(rompId).getId());
 		} catch (final Throwable oops) {
 			if (oops.getMessage().equals("hacking"))
 				result = new ModelAndView("misc/403");
 			else if (oops.getMessage().equals("draft mode"))
 				result = new ModelAndView("misc/403");
 			else
-				result = this.createEditModelAndView(wert, "wert.commit.error");
+				result = this.createEditModelAndView(romp, "romp.commit.error");
 		}
 		return result;
 	}
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final Wert wert, final BindingResult binding, final HttpServletRequest req) {
+	public ModelAndView save(@Valid final Romp romp, final BindingResult binding, final HttpServletRequest req) {
 		ModelAndView result;
 
-		System.out.println(wert.getTicker());
-		System.out.println(wert.getAdministrator());
-		System.out.println(wert.getPublicationMoment());
-		System.out.println(wert);
+		System.out.println(romp.getTicker());
+		System.out.println(romp.getAdministrator());
+		System.out.println(romp.getPublicationMoment());
+		System.out.println(romp);
 
 		final int conferenceId = Integer.parseInt(req.getParameter("conferenceId"));
 		if (binding.hasErrors()) {
 			System.out.println(binding);
-			result = this.createEditModelAndView(wert, conferenceId);
+			result = this.createEditModelAndView(romp, conferenceId);
 		} else
 			try {
-				final Wert res = this.wertService.save(wert);
-				if (wert.getId() == 0)
-					this.conferenceService.findOne(conferenceId).getWerts().add(res);
+				final Romp res = this.rompService.save(romp);
+				if (romp.getId() == 0)
+					this.conferenceService.findOne(conferenceId).getRomps().add(res);
 
-				result = new ModelAndView("redirect:list.do?conferenceId=" + this.conferenceService.getConferenceByWert(res.getId()).getId());
+				result = new ModelAndView("redirect:list.do?conferenceId=" + this.conferenceService.getConferenceByRomp(res.getId()).getId());
 
 			} catch (final Throwable oops) {
 				System.out.println(oops.getMessage());
 
-				result = this.createEditModelAndView(wert, "wert.commit.error");
+				result = this.createEditModelAndView(romp, "romp.commit.error");
 			}
 		return result;
 	}
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam final int wertId) {
+	public ModelAndView delete(@RequestParam final int rompId) {
 		ModelAndView result;
 		try {
-			final Wert wert = this.wertService.findOne(wertId);
-			Assert.isTrue(wert.getAdministrator().equals(this.administartorService.findByPrincipal()), "hacking");
-			result = new ModelAndView("redirect:list.do?conferenceId=" + this.conferenceService.getConferenceByWert(wert.getId()).getId());
-			this.wertService.delete(wert);
+			final Romp romp = this.rompService.findOne(rompId);
+			Assert.isTrue(romp.getAdministrator().equals(this.administartorService.findByPrincipal()), "hacking");
+			result = new ModelAndView("redirect:list.do?conferenceId=" + this.conferenceService.getConferenceByRomp(romp.getId()).getId());
+			this.rompService.delete(romp);
 
 			return result;
 		} catch (final Throwable oops) {
@@ -143,26 +142,50 @@ public class WertAdministratorController extends AbstractController {
 		}
 		return result;
 	}
-	protected ModelAndView createEditModelAndView(final Wert wert, final int conferenceId) {
+	protected ModelAndView createEditModelAndView(final Romp romp, final int conferenceId) {
 		ModelAndView result;
 
-		result = this.createEditModelAndView(wert, null);
+		result = this.createEditModelAndView(romp, null);
 
 		result.addObject("conferenceId", conferenceId);
 
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Wert wert, final String messageCode) {
+	protected ModelAndView createEditModelAndView(final Romp romp, final String messageCode) {
 		final ModelAndView result;
 		final String languaje = LocaleContextHolder.getLocale().getLanguage();
 
-		result = new ModelAndView("wert/edit");
-		result.addObject("wert", wert);
+		result = new ModelAndView("romp/edit");
+		result.addObject("romp", romp);
 		result.addObject("message", messageCode);
 		result.addObject("languaje", languaje);
 
-		result.addObject("requestURI", "wert/administrator/edit.do");
+		result.addObject("requestURI", "romp/administrator/edit.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/show", method = RequestMethod.GET)
+	public ModelAndView show(@RequestParam final int rompId) {
+		ModelAndView result;
+		final Romp romp;
+
+		try {
+			romp = this.rompService.findOne(rompId);
+			final String languaje = LocaleContextHolder.getLocale().getLanguage();
+
+			result = new ModelAndView("romp/show");
+			result.addObject("requestURI", "romp/administrator/show.do");
+			result.addObject("romp", romp);
+			result.addObject("conferenceId", this.conferenceService.getConferenceByRomp(rompId).getId());
+			result.addObject("languaje", languaje);
+
+		} catch (final Throwable oops) {
+			// TODO: handle exception
+
+			result = new ModelAndView("redirect:/welcome/index.do");
+		}
 
 		return result;
 	}

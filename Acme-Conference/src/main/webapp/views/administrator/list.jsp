@@ -10,7 +10,30 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
+<h3>
+	<spring:message code="administrator.romps" />
+</h3>
+<p>
+	<spring:message code="administrator.avgR" />
+	:
+	<fmt:formatNumber value="${avgR}" />
+</p>
+<p>
+	<spring:message code="administrator.stvR" />
+	:
+	<fmt:formatNumber value="${stvR}" />
+</p>
+<p>
+	<spring:message code="administrator.un" />
+	:
+	<fmt:formatNumber value="${unpublished}" />
+</p>
 
+<p>
+	<spring:message code="administrator.pu" />
+	:
+	<fmt:formatNumber value="${published}" />
+</p>
 <h3>
 	<spring:message code="administrator.submissionsPerConference" />
 </h3>

@@ -20,43 +20,52 @@
 
 	<div>
 		<button type="button"
-			onclick="javascript: relativeRedir('wert/administrator/create.do?conferenceId=${conferenceId}')">
-			<spring:message code="wert.create" />
+			onclick="javascript: relativeRedir('romp/administrator/create.do?conferenceId=${conferenceId}')">
+			<spring:message code="romp.create" />
 		</button>
 	</div>
 </security:authorize>
 
-<display:table pagesize="20" class="displaytag" name="werts"
+<display:table pagesize="20" class="displaytag" name="romps"
 	requestURI="${requestURI}" id="row">
 
 	<jstl:choose>
 		<jstl:when test="${row.publicationMoment > mes}">
-			<jstl:set var="color" value="green" />
+			<jstl:set var="color" value="DarkMagenta" />
 		</jstl:when>
 		<jstl:when
 			test="${row.publicationMoment < mes && row.publicationMoment > dosMeses}">
-			<jstl:set var="color" value="MediumPurple" />
+			<jstl:set var="color" value="DarkBlue" />
 		</jstl:when>
 		<jstl:when test="${row.publicationMoment == null}">
 			<jstl:set var="color" value="white" />
 		</jstl:when>
 
 		<jstl:otherwise>
-			<jstl:set var="color" value="blue" />
+			<jstl:set var="color" value="FloralWhite" />
 		</jstl:otherwise>
 	</jstl:choose>
 
 
 
 	<!-- Action links -->
+	<security:authorize access="hasRole('ADMIN')">
+		<display:column titleKey="romp.show"
+			style="background-color: ${color}">
+			<a href="romp/administrator/show.do?rompId=${row.id}"> <spring:message
+					code="romp.show" />
+			</a>
+
+		</display:column>
+	</security:authorize>
 
 	<security:authorize access="hasRole('ADMIN')">
-		<display:column titleKey="wert.edit"
+		<display:column titleKey="romp.edit"
 			style="background-color: ${color}">
 			<jstl:if test="${row.administrator == admin }">
 				<jstl:if test="${row.draftMode == true }">
-					<a href="wert/administrator/edit.do?wertId=${row.id}"> <spring:message
-							code="wert.edit" />
+					<a href="romp/administrator/edit.do?rompId=${row.id}"> <spring:message
+							code="romp.edit" />
 					</a>
 				</jstl:if>
 			</jstl:if>
@@ -67,7 +76,7 @@
 
 	<!-- Ticker -->
 	<security:authorize access="hasRole('ADMIN')">
-		<display:column property="ticker" titleKey="wert.ticker"
+		<display:column property="ticker" titleKey="romp.ticker"
 			style="background-color: ${color}" />
 	</security:authorize>
 
@@ -75,48 +84,45 @@
 
 	<jstl:if test="${languaje == 'es' }">
 		<display:column property="publicationMoment"
-			style="background-color: ${color}" titleKey="wert.publicationMoment"
+			style="background-color: ${color}" titleKey="romp.publicationMoment"
 			format="{0,date,dd-MM-yy HH:mm}" />
 	</jstl:if>
 
 	<jstl:if test="${languaje == 'en' }">
 		<display:column property="publicationMoment"
-			style="background-color: ${color}" titleKey="wert.publicationMoment"
+			style="background-color: ${color}" titleKey="romp.publicationMoment"
 			format="{0,date,yy/MM/dd  HH:mm}" />
 	</jstl:if>
 	<!-- Body -->
 
-	<display:column property="body" titleKey="wert.body"
+	<display:column property="body" titleKey="romp.body"
 		style="background-color: ${color}" />
 
 	<!-- Attrib1 -->
 
-	<display:column property="atrib1" titleKey="wert.atrib1"
-		style="background-color: ${color}" />
+	<display:column property="optionalPicture"
+		titleKey="romp.optionalPicture" style="background-color: ${color}" />
 
-	<!-- Attrib2 -->
 
-	<display:column property="atrib2" titleKey="wert.atrib2"
-		style="background-color: ${color}" />
 
 	<!-- DraftMode -->
 	<security:authorize access="hasRole('ADMIN')">
-		<display:column property="draftMode" titleKey="wert.draftMode"
+		<display:column property="draftMode" titleKey="romp.draftMode"
 			style="background-color: ${color}" />
 	</security:authorize>
 
 	<!-- Administrator -->
 
 	<display:column property="administrator.userAccount.username"
-		titleKey="wert.administrator" style="background-color: ${color}" />
+		titleKey="romp.administrator" style="background-color: ${color}" />
 
 	<security:authorize access="hasRole('ADMIN')">
-		<display:column titleKey="wert.delete"
+		<display:column titleKey="romp.delete"
 			style="background-color: ${color}">
 			<jstl:if test="${row.administrator == admin }">
 				<jstl:if test="${row.draftMode == true }">
-					<a href="wert/administrator/delete.do?wertId=${row.id}"> <spring:message
-							code="wert.delete" />
+					<a href="romp/administrator/delete.do?rompId=${row.id}"> <spring:message
+							code="romp.delete" />
 					</a>
 				</jstl:if>
 			</jstl:if>
@@ -127,7 +133,7 @@
 </display:table>
 <br />
 <input type="button" name="cancel"
-	value="<spring:message code="wert.return" />"
+	value="<spring:message code="romp.return" />"
 	onClick="javascript: window.location.replace('welcome/index.do');" />
 
 

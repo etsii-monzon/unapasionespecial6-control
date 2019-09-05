@@ -7,20 +7,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import repositories.WertRepository;
-import domain.Wert;
+import repositories.RompRepository;
+import domain.Romp;
 
 @Component
 @Transactional
-public class StringToWertConverter implements Converter<String, Wert> {
+public class StringToRompConverter implements Converter<String, Romp> {
 
 	@Autowired
-	WertRepository	wertRepository;
+	RompRepository	rompRepository;
 
 
 	@Override
-	public Wert convert(final String text) {
-		Wert result;
+	public Romp convert(final String text) {
+		Romp result;
 		int id;
 
 		try {
@@ -28,7 +28,7 @@ public class StringToWertConverter implements Converter<String, Wert> {
 				result = null;
 			else {
 				id = Integer.valueOf(text);
-				result = this.wertRepository.findOne(id);
+				result = this.rompRepository.findOne(id);
 			}
 		} catch (final Throwable oops) {
 			throw new IllegalArgumentException(oops);

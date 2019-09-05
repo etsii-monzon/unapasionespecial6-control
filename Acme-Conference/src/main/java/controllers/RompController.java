@@ -14,15 +14,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.AdministratorService;
 import services.ConferenceService;
-import services.WertService;
-import domain.Wert;
+import services.RompService;
+import domain.Romp;
 
 @Controller
-@RequestMapping(value = "/wert/")
-public class WertController extends AbstractController {
+@RequestMapping(value = "/romp/")
+public class RompController extends AbstractController {
 
 	@Autowired
-	private WertService				wertService;
+	private RompService				rompService;
 
 	@Autowired
 	private ConferenceService		conferenceService;
@@ -39,10 +39,10 @@ public class WertController extends AbstractController {
 		final Date mes = new DateTime().minusMonths(1).toDate();
 		final Date dosMeses = new DateTime().minusMonths(2).toDate();
 
-		final Collection<Wert> werts = this.conferenceService.findOne(conferenceId).getWerts();
+		final Collection<Romp> romps = this.rompService.getFinalRomps(conferenceId);
 
-		result = new ModelAndView("wert/list");
-		result.addObject("werts", werts);
+		result = new ModelAndView("romp/list");
+		result.addObject("romps", romps);
 
 		final String languaje = LocaleContextHolder.getLocale().getLanguage();
 		result.addObject("languaje", languaje);
@@ -51,7 +51,7 @@ public class WertController extends AbstractController {
 		result.addObject("dosMeses", dosMeses);
 
 		result.addObject("conferenceId", conferenceId);
-		result.addObject("requestURI", "wert/list.do");
+		result.addObject("requestURI", "romp/list.do");
 		//		result.addObject("admin", this.administartorService.findByPrincipal());
 
 		return result;

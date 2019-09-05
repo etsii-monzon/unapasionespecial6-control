@@ -24,6 +24,7 @@ import services.AdministratorService;
 import services.CommentService;
 import services.ConferenceService;
 import services.RegistrationService;
+import services.RompService;
 import services.SubmissionService;
 import domain.Administrator;
 
@@ -47,6 +48,9 @@ public class AdministratorAdministratorController extends AbstractController {
 
 	@Autowired
 	private CommentService			commentSevice;
+
+	@Autowired
+	private RompService				rompSevice;
 
 
 	// Constructors -----------------------------------------------------------
@@ -144,6 +148,12 @@ public class AdministratorAdministratorController extends AbstractController {
 		final Integer maxConferecePerCategory = this.confService.maxConferencePerCategory();
 		final Double stdConferecePerCategory = this.confService.stdDevConferencePerCategory();
 
+		final Double unpublished = this.rompSevice.draftVersusTotal();
+		final Double published = this.rompSevice.finalVersusTotal();
+
+		final Double avgR = this.rompSevice.avgRompsPerConference();
+		final Double stvR = this.rompSevice.stddevRompsPerConference();
+
 		result = new ModelAndView("administrator/list");
 		result.addObject("avgDays", avgDays);
 		result.addObject("minDays", minDays);
@@ -173,6 +183,11 @@ public class AdministratorAdministratorController extends AbstractController {
 		result.addObject("maxConferecePerCategory", maxConferecePerCategory);
 		result.addObject("minConferecePerCategory", minConferecePerCategory);
 		result.addObject("stdConferecePerCategory", stdConferecePerCategory);
+
+		result.addObject("unpublished", unpublished);
+		result.addObject("published", published);
+		result.addObject("avgR", avgR);
+		result.addObject("stvR", stvR);
 
 		return result;
 	}
