@@ -16,7 +16,8 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-	<form:hidden path="publicationMoment" />
+	<%-- 	<form:hidden path="publicationMoment" />
+ --%>
 	<form:hidden path="ticker" />
 	<form:hidden path="audit" />
 
@@ -26,6 +27,18 @@
 	<acme:textarea code="xomp.body" path="body" />
 	<acme:textbox code="xomp.optionalPicture" path="optionalPicture" />
 
+	<form:label path="status">
+		<spring:message code="xomp.status" />:
+	</form:label>
+	<form:select path="status">
+		<form:option value="ACCEPTED" label="ACCEPTED" />
+
+		<form:option value="REJECTED" label="REJECTED" />
+		<form:option value="PENDING" label="PENDING" />
+
+
+	</form:select>
+	<br />
 
 	<form:label path="draftMode">
 		<spring:message code="xomp.draftMode" />:

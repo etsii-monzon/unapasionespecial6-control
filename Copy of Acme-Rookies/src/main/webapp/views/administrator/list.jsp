@@ -12,6 +12,31 @@
 
 <!-- Listing grid -->
 
+<h3>
+	<spring:message code="administrator.xompsAudit" />
+</h3>
+<p>
+	<spring:message code="administrator.avgXompsAud" />
+	:
+	<fmt:formatNumber value="${avgXompsAud}" />
+</p>
+<p>
+	<spring:message code="administrator.stdXompsAud" />
+	:
+	<fmt:formatNumber value="${stdXompsAud}" />
+</p>
+<p>
+	<spring:message code="administrator.ratioXompsPublished" />
+	:
+	<fmt:formatNumber value="${ratioXompsPublished}" />
+</p>
+<p>
+	<spring:message code="administrator.ratioXompsUnpublished" />
+	:
+	<fmt:formatNumber value="${ratioXompsUnpublished}" />
+</p>
+
+
 
 <h3>
 	<spring:message code="administrator.company" />
@@ -137,7 +162,7 @@
 
 </br>
 
-<h3>
+<%-- <h3>
 	<spring:message code="administrator.positionScores" />
 </h3>
 
@@ -166,7 +191,7 @@
 
 </br>
 
-<h3>
+ --%><h3>
 	<spring:message code="administrator.salaryPos"/>
 </h3>
 

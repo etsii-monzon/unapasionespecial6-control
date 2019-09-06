@@ -93,11 +93,11 @@ public class DashboardServiceTest extends AbstractTest {
 			this.positionService.findBestPosition();
 			this.positionService.findWorstPosition();
 
-			this.auditService.avgAuditScoresPerPosition();
-			this.auditService.minAuditScoresPerPosition();
-			this.auditService.maxAuditScoresPerPosition();
-			this.auditService.stdDevAuditScoresPerPosition();
-			this.auditService.avgSalaryFromHighestAuditScorePositions();
+			//			this.auditService.avgAuditScoresPerPosition();
+			//			this.auditService.minAuditScoresPerPosition();
+			//			//			this.auditService.maxAuditScoresPerPosition();
+			//			this.auditService.stdDevAuditScoresPerPosition();
+			//			this.auditService.avgSalaryFromHighestAuditScorePositions();
 			this.auditService.avgAuditScorePerCompany();
 			this.auditService.minAuditScorePerCompany();
 			this.auditService.maxAuditScorePerCompany();

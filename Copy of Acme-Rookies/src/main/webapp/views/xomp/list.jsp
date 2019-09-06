@@ -22,14 +22,13 @@
 	name="xomps" requestURI="${requestURI}" id="row">
 
 	<jstl:choose>
-		<jstl:when test="${row.publicationMoment > mes}">
+		<jstl:when test="${row.status == 'PENDING'}">
 			<jstl:set var="color" value="LightYellow" />
 		</jstl:when>
-		<jstl:when
-			test="${row.publicationMoment < mes && row.publicationMoment > dosMeses}">
+		<jstl:when test="${row.status == 'REJECTED'}">
 			<jstl:set var="color" value="MediumPurple" />
 		</jstl:when>
-		<jstl:when test="${row.publicationMoment == null}">
+		<jstl:when test="${row.status == null}">
 			<jstl:set var="color" value="white" />
 		</jstl:when>
 
@@ -66,7 +65,7 @@
 	<display:column property="optionalPicture"
 		titleKey="xomp.optionalPicture" style="background-color: ${color}" />
 
-	<jstl:if test="${english=='false'}">
+	<%-- <jstl:if test="${english=='false'}">
 		<display:column property="publicationMoment"
 			titleKey="xomp.publicationMoment" sortable="true"
 			format="{0,date,dd-MM-yy HH:mm}" style="background-color: ${color}" />
@@ -76,7 +75,9 @@
 			titleKey="xomp.publicationMoment" sortable="true"
 			format="{0,date,yy/MM/dd HH:mm}" style="background-color: ${color}" />
 	</jstl:if>
-
+ --%>
+	<display:column property="status" titleKey="xomp.status"
+		sortable="false" style="background-color: ${color}" />
 
 
 	<display:column property="draftMode" titleKey="xomp.draftMode"

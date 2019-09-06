@@ -233,24 +233,24 @@ public class AuditService {
 		return res;
 	}
 
-	public Double avgAuditScoresPerPosition() {
-		return this.auditRepository.avgAuditScoresPerPosition();
-	}
+	//	public Double avgAuditScoresPerPosition() {
+	//		return this.auditRepository.avgAuditScoresPerPosition();
+	//	}
 
-	public Double minAuditScoresPerPosition() {
-		return this.auditRepository.minAuditScoresPerPosition();
-	}
-
-	public Double maxAuditScoresPerPosition() {
-		return this.auditRepository.maxAuditScoresPerPosition();
-	}
-
-	public Double stdDevAuditScoresPerPosition() {
-		return this.auditRepository.stdDevAuditScoresPerPosition();
-	}
-
-	public Double avgSalaryFromHighestAuditScorePositions() {
-		return this.auditRepository.avgSalaryFromHighestAuditScorePositions();
-	}
+	//	public Double minAuditScoresPerPosition() {
+	//		return this.auditRepository.minAuditScoresPerPosition();
+	//	}
+	//
+	//	//	public Double maxAuditScoresPerPosition() {
+	//	//		return this.auditRepository.maxAuditScoresPerPosition();
+	//	//	}
+	//
+	//	public Double stdDevAuditScoresPerPosition() {
+	//		return this.auditRepository.stdDevAuditScoresPerPosition();
+	//	}
+	//
+	//	public Double avgSalaryFromHighestAuditScorePositions() {
+	//		return this.auditRepository.avgSalaryFromHighestAuditScorePositions();
+	//	}
 
 }

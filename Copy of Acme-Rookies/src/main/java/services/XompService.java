@@ -68,11 +68,6 @@ public class XompService {
 		Assert.notNull(quolet);
 		final Xomp res;
 
-		if (quolet.isDraftMode() == false) {
-			final Calendar calendar = new GregorianCalendar();
-			quolet.setPublicationMoment(calendar.getTime());
-		}
-
 		res = this.xompRepository.save(quolet);
 
 		if (!res.getAudit().getXomps().contains(res))
@@ -132,4 +127,20 @@ public class XompService {
 		return res;
 
 	}
+
+	public Double avgNumberXompsPerAudit() {
+		return this.xompRepository.avgNumberXompsPerAudit();
+	}
+
+	public Double stdNumberXompsPerAudit() {
+		return this.xompRepository.stdNumberXompsPerAudit();
+	}
+	public Double ratioXompsPublished() {
+		return this.xompRepository.ratioXompPublished();
+	}
+
+	public Double ratioXompsUnpublished() {
+		return this.xompRepository.ratioXompUnpublished();
+	}
+
 }

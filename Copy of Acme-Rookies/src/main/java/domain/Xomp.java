@@ -1,8 +1,6 @@
 
 package domain;
 
-import java.util.Date;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -17,14 +15,13 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.SafeHtml;
 import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
 import org.hibernate.validator.constraints.URL;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Xomp extends DomainEntity {
 
 	private String	ticker;
-	private Date	publicationMoment;
+	private String	status;
 	private String	body;
 	private String	optionalPicture;
 	private boolean	draftMode;
@@ -32,7 +29,7 @@ public class Xomp extends DomainEntity {
 	private Audit	audit;
 
 
-	@Pattern(regexp = "^\\d{2}-\\w{2}\\d{2}-\\d{4}$")
+	//	@Pattern(regexp = "^\\d{2}-\\w{2}\\d{2}-\\d{4}$")
 	@NotBlank
 	@Column(unique = true)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
@@ -44,15 +41,15 @@ public class Xomp extends DomainEntity {
 		this.ticker = ticker;
 	}
 
-	@DateTimeFormat(pattern = "yy/MM/dd HH:mm")
-	//	@NotNull
-	public Date getPublicationMoment() {
-		return this.publicationMoment;
-	}
-
-	public void setPublicationMoment(final Date publicationMoment) {
-		this.publicationMoment = publicationMoment;
-	}
+	//	@DateTimeFormat(pattern = "yy/MM/dd HH:mm")
+	//	//	@NotNull
+	//	public Date getPublicationMoment() {
+	//		return this.publicationMoment;
+	//	}
+	//
+	//	public void setPublicationMoment(final Date publicationMoment) {
+	//		this.publicationMoment = publicationMoment;
+	//	}
 
 	@NotBlank
 	@Size(max = 100)
@@ -93,6 +90,17 @@ public class Xomp extends DomainEntity {
 
 	public void setAudit(final Audit audit) {
 		this.audit = audit;
+	}
+
+	@Pattern(regexp = "^(PENDING)|(ACCEPTED)|(REJECTED)$")
+	@NotBlank
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(final String status) {
+		this.status = status;
 	}
 
 }

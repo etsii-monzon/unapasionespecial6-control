@@ -22,6 +22,10 @@
 		<b><spring:message code="xomp.body" />: </b>
 		<jstl:out value="${xomp.body }" />
 	</p>
+	<p>
+		<b><spring:message code="xomp.status" />: </b>
+		<jstl:out value="${xomp.status }" />
+	</p>
 
 
 	<p>
@@ -34,31 +38,7 @@
 		</jstl:if>
 	</p>
 
-	<p>
-		<b><spring:message code="xomp.publicationMoment" />: </b>
-		<jstl:if test="${xomp.draftMode}">
-
-			<spring:message code="xomp.draft" />
-
-		</jstl:if>
-
-		<jstl:if test="${!xomp.draftMode}">
-			<jstl:if test="${english=='false'}">
-
-				<fmt:formatDate value="${xomp.publicationMoment}"
-					pattern="dd/MM/yyyy HH:mm" />
-			</jstl:if>
-
-		</jstl:if>
-		<jstl:if test="${!xomp.draftMode}">
-			<jstl:if test="${english=='true'}">
-
-				<fmt:formatDate value="${xomp.publicationMoment}"
-					pattern="yyyy/MM/dd HH:mm" />
-			</jstl:if>
-
-		</jstl:if>
-	</p>
+	
 
 </div>
 

@@ -33,6 +33,7 @@ import services.CreditCardService;
 import services.HackerService;
 import services.PositionService;
 import services.ProviderService;
+import services.XompService;
 import domain.Administrator;
 import domain.Company;
 
@@ -65,6 +66,8 @@ public class AdministratorController extends AbstractController {
 
 	@Autowired
 	private ProviderService			providerService;
+	@Autowired
+	private XompService				xompService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -146,6 +149,11 @@ public class AdministratorController extends AbstractController {
 	public ModelAndView list() {
 		final ModelAndView result;
 
+		final Double avgXompsAud = this.xompService.avgNumberXompsPerAudit();
+		final Double stdXompsAud = this.xompService.stdNumberXompsPerAudit();
+		final Double ratioXompsPublished = this.xompService.ratioXompsPublished();
+		final Double ratioXompsUnpublished = this.xompService.ratioXompsUnpublished();
+
 		final Double avgComp = this.companyService.averagePositionsPerCompany();
 		final Integer minComp = this.companyService.minPositionsPerCompany();
 		final Integer maxComp = this.companyService.maxPositionsPerCompany();
@@ -168,11 +176,11 @@ public class AdministratorController extends AbstractController {
 		final String best = this.positionService.findBestPosition();
 		final String worst = this.positionService.findWorstPosition();
 
-		final Double avgScPos = this.auditService.avgAuditScoresPerPosition();
-		final Double minScPos = this.auditService.minAuditScoresPerPosition();
-		final Double maxScPos = this.auditService.maxAuditScoresPerPosition();
-		final Double stdScPos = this.auditService.stdDevAuditScoresPerPosition();
-		final Double salScPos = this.auditService.avgSalaryFromHighestAuditScorePositions();
+		//		final Double avgScPos = this.auditService.avgAuditScoresPerPosition();
+		//		final Double minScPos = this.auditService.minAuditScoresPerPosition();
+		//		//		final Double maxScPos = this.auditService.maxAuditScoresPerPosition();
+		//		final Double stdScPos = this.auditService.stdDevAuditScoresPerPosition();
+		//		final Double salScPos = this.auditService.avgSalaryFromHighestAuditScorePositions();
 
 		final Double avgScComp = this.auditService.avgAuditScorePerCompany();
 		final Double minScComp = this.auditService.minAuditScorePerCompany();
@@ -209,11 +217,11 @@ public class AdministratorController extends AbstractController {
 		result.addObject("best", best);
 		result.addObject("worst", worst);
 
-		result.addObject("avgScPos", avgScPos);
-		result.addObject("minScPos", minScPos);
-		result.addObject("maxScPos", maxScPos);
-		result.addObject("stdScPos", stdScPos);
-		result.addObject("salScPos", salScPos);
+		//		result.addObject("avgScPos", avgScPos);
+		//		result.addObject("minScPos", minScPos);
+		//		//		result.addObject("maxScPos", maxScPos);
+		//		result.addObject("stdScPos", stdScPos);
+		//		result.addObject("salScPos", salScPos);
 
 		result.addObject("avgScComp", avgScComp);
 		result.addObject("minScComp", minScComp);
@@ -226,6 +234,11 @@ public class AdministratorController extends AbstractController {
 		result.addObject("maxItemsProv", maxItemsProv);
 		result.addObject("stdDevItemsProv", stdDevItemsProv);
 		result.addObject("topProvs", topProvs);
+
+		result.addObject("avgXompsAud", avgXompsAud);
+		result.addObject("stdXompsAud", stdXompsAud);
+		result.addObject("ratioXompsPublished", ratioXompsPublished);
+		result.addObject("ratioXompsUnpublished", ratioXompsUnpublished);
 
 		result.addObject("requestURI", "administrator/list.do");
 

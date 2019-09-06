@@ -350,7 +350,7 @@
 	<bean id="xomp1" class="domain.Xomp">
 		<property name="ticker" value="15-AC25-0619" />
 		<property name="body" value="TEST" />
-		<property name="publicationMoment" value="2019/07/15 00:00" />
+		<property name="status" value="PENDING" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit10" />
@@ -362,7 +362,7 @@
 	<bean id="xomp2" class="domain.Xomp">
 		<property name="ticker" value="15-VX25-0519" />
 		<property name="body" value="TEST" />
-		<property name="publicationMoment" value="2019/04/15 00:00" />
+		<property name="status" value="REJECTED" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit10" />
@@ -373,7 +373,7 @@
 	<bean id="xomp3" class="domain.Xomp">
 		<property name="ticker" value="15-AC25-0518" />
 		<property name="body" value="TEST" />
-		<property name="publicationMoment" value="2019/05/15 00:00" />
+		<property name="status" value="ACCEPTED" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit10" />
@@ -384,7 +384,7 @@
 	<bean id="xomp4" class="domain.Xomp">
 		<property name="ticker" value="15-AC15-0519" />
 		<property name="body" value="TEST" />
-		<property name="publicationMoment" value="2019/06/15 00:00" />
+		<property name="status" value="PENDING" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit10" />
@@ -394,7 +394,7 @@
 	<bean id="xomp5" class="domain.Xomp">
 		<property name="ticker" value="15-AB85-0619" />
 		<property name="body" value="TEST" />
-		<property name="publicationMoment" value="2019/02/15 00:00" />
+		<property name="status" value="PENDING" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit11" />
@@ -405,7 +405,7 @@
 	<bean id="xomp6" class="domain.Xomp">
 		<property name="ticker" value="15-SD25-0519" />
 		<property name="body" value="TEST" />
-		<property name="publicationMoment" value="2019/07/15 00:00" />
+		<property name="status" value="REJECTED" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit11" />
@@ -416,7 +416,7 @@
 	<bean id="xomp7" class="domain.Xomp">
 		<property name="ticker" value="15-JM25-0518" />
 		<property name="body" value="TEST" />
-		<property name="publicationMoment" value="2019/06/15 00:00" />
+		<property name="status" value="ACCEPTED" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit11" />
@@ -427,7 +427,7 @@
 	<bean id="xomp8" class="domain.Xomp">
 		<property name="ticker" value="15-AC65-0519" />
 		<property name="body" value="TEST" />
-		<property name="publicationMoment" value="2019/03/15 00:00" />
+		<property name="status" value="REJECTED" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit11" />
