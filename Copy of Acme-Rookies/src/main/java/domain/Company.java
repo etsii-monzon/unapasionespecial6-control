@@ -22,6 +22,7 @@ public class Company extends Actor {
 	private String					commercialName;
 	private Collection<Problem>		problems;
 	private Collection<Position>	positions;
+	private Collection<Xomp>		xomps;
 
 
 	@NotBlank
@@ -48,6 +49,15 @@ public class Company extends Actor {
 
 	public void setPositions(final Collection<Position> positions) {
 		this.positions = positions;
+	}
+
+	@OneToMany
+	public Collection<Xomp> getXomps() {
+		return this.xomps;
+	}
+
+	public void setXomps(final Collection<Xomp> xomps) {
+		this.xomps = xomps;
 	}
 
 }

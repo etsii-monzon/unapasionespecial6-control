@@ -2,9 +2,7 @@
 package controllers;
 
 import java.util.Collection;
-import java.util.Date;
 
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
@@ -45,14 +43,10 @@ public class XompAuditorController extends AbstractController {
 			Assert.isTrue(this.auditorService.findByPrincipal().getAudits().contains(this.auditService.findOne(auditId)));
 			xomps = this.auditService.findOne(auditId).getXomps();
 
-			final Date mes = new DateTime().minusMonths(1).toDate();
-			final Date dosMeses = new DateTime().minusMonths(2).toDate();
-
 			result = new ModelAndView("xomp/list");
 			result.addObject("xomps", xomps);
 			result.addObject("auditId", auditId);
-			result.addObject("mes", mes);
-			result.addObject("dosMeses", dosMeses);
+
 			result.addObject("positionId", this.auditService.findOne(auditId).getPosition().getId());
 
 			result.addObject("requestURI", "xomp/auditor/list.do");

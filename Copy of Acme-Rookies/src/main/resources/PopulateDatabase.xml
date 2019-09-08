@@ -321,8 +321,7 @@
 			<list>
 				<ref bean="xomp1" />
 				<ref bean="xomp2" />
-				<ref bean="xomp3" />
-				<ref bean="xomp4" />
+
 
 			</list>
 		</property>
@@ -337,10 +336,8 @@
 		<property name="xomps">
 			<list>
 
-				<ref bean="xomp5" />
-				<ref bean="xomp6" />
-				<ref bean="xomp7" />
-				<ref bean="xomp8" />
+				<ref bean="xomp3" />
+				<ref bean="xomp4" />
 
 			</list>
 		</property>
@@ -376,7 +373,7 @@
 		<property name="status" value="ACCEPTED" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit10" />
+		<property name="audit" ref="audit11" />
 
 
 	</bean>
@@ -384,50 +381,7 @@
 	<bean id="xomp4" class="domain.Xomp">
 		<property name="ticker" value="15-AC15-0519" />
 		<property name="body" value="TEST" />
-		<property name="status" value="PENDING" />
-		<property name="optionalPicture" value="http://www.photo.com" />
-		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit10" />
-
-
-	</bean>
-	<bean id="xomp5" class="domain.Xomp">
-		<property name="ticker" value="15-AB85-0619" />
-		<property name="body" value="TEST" />
-		<property name="status" value="PENDING" />
-		<property name="optionalPicture" value="http://www.photo.com" />
-		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit11" />
-
-
-	</bean>
-
-	<bean id="xomp6" class="domain.Xomp">
-		<property name="ticker" value="15-SD25-0519" />
-		<property name="body" value="TEST" />
-		<property name="status" value="REJECTED" />
-		<property name="optionalPicture" value="http://www.photo.com" />
-		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit11" />
-
-
-	</bean>
-
-	<bean id="xomp7" class="domain.Xomp">
-		<property name="ticker" value="15-JM25-0518" />
-		<property name="body" value="TEST" />
-		<property name="status" value="ACCEPTED" />
-		<property name="optionalPicture" value="http://www.photo.com" />
-		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit11" />
-
-
-	</bean>
-
-	<bean id="xomp8" class="domain.Xomp">
-		<property name="ticker" value="15-AC65-0519" />
-		<property name="body" value="TEST" />
-		<property name="status" value="REJECTED" />
+		<property name="status" value="ALGO" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit11" />
@@ -653,7 +607,12 @@
 
 			</list>
 		</property>
-
+		<property name="xomps">
+			<list>
+				<ref bean="xomp1" />
+				<ref bean="xomp2" />
+			</list>
+		</property>
 
 	</bean>
 
@@ -680,7 +639,12 @@
 
 			</list>
 		</property>
-
+		<property name="xomps">
+			<list>
+				<ref bean="xomp3" />
+				<ref bean="xomp4" />
+			</list>
+		</property>
 
 	</bean>
 

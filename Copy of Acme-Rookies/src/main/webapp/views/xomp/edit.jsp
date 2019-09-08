@@ -35,6 +35,7 @@
 
 		<form:option value="REJECTED" label="REJECTED" />
 		<form:option value="PENDING" label="PENDING" />
+		<form:option value="ALGO" label="ALGO" />
 
 
 	</form:select>

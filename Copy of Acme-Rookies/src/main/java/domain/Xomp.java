@@ -92,7 +92,7 @@ public class Xomp extends DomainEntity {
 		this.audit = audit;
 	}
 
-	@Pattern(regexp = "^(PENDING)|(ACCEPTED)|(REJECTED)$")
+	@Pattern(regexp = "^(PENDING)|(ACCEPTED)|(ALGO)|(REJECTED)$")
 	@NotBlank
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getStatus() {
