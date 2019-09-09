@@ -119,6 +119,14 @@
 			</a>
 		</display:column>
 	</security:authorize>
+	
+	<security:authorize access="hasRole('COMPANY')">
+		<display:column titleKey="position.quolets">
+			<a href="xomp/company/list.do?positionId=${row.id}"> <spring:message
+					code="position.quolets" />
+			</a>
+		</display:column>
+	</security:authorize>
 
 
 

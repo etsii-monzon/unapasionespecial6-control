@@ -20,13 +20,13 @@ import org.hibernate.validator.constraints.URL;
 @Access(AccessType.PROPERTY)
 public class Xomp extends DomainEntity {
 
-	private String	ticker;
-	private String	status;
-	private String	body;
-	private String	optionalPicture;
-	private boolean	draftMode;
+	private String		ticker;
+	private String		status;
+	private String		body;
+	private String		optionalPicture;
+	private boolean		draftMode;
 
-	private Audit	audit;
+	private Position	position;
 
 
 	//	@Pattern(regexp = "^\\d{2}-\\w{2}\\d{2}-\\d{4}$")
@@ -84,12 +84,12 @@ public class Xomp extends DomainEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = true)
-	public Audit getAudit() {
-		return this.audit;
+	public Position getPosition() {
+		return this.position;
 	}
 
-	public void setAudit(final Audit audit) {
-		this.audit = audit;
+	public void setPosition(final Position position) {
+		this.position = position;
 	}
 
 	@Pattern(regexp = "^(PENDING)|(ACCEPTED)|(ALGO)|(REJECTED)$")

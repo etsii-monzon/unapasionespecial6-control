@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.AuditService;
 import services.AuditorService;
+import services.PositionService;
 import services.XompService;
 import domain.Xomp;
 
@@ -27,6 +28,8 @@ public class XompAuditorController extends AbstractController {
 
 	@Autowired
 	AuditorService	auditorService;
+	@Autowired
+	PositionService	positionService;
 	@Autowired
 	AuditService	auditService;
 
@@ -44,7 +47,7 @@ public class XompAuditorController extends AbstractController {
 
 		try {
 			Assert.isTrue(this.auditorService.findByPrincipal().getAudits().contains(this.auditService.findOne(auditId)));
-			xompsAll = this.auditService.findOne(auditId).getXomps();
+			xompsAll = this.auditService.findOne(auditId).getPosition().getXomps();
 
 			for (final Xomp x : xompsAll)
 				if (x.isDraftMode() == false)
@@ -54,7 +57,7 @@ public class XompAuditorController extends AbstractController {
 			result.addObject("xomps", xomps);
 			result.addObject("auditId", auditId);
 
-			result.addObject("positionId", this.auditService.findOne(auditId).getPosition().getId());
+			result.addObject("auditId", this.positionService.findOne(auditId));
 
 			result.addObject("requestURI", "xomp/auditor/list.do");
 

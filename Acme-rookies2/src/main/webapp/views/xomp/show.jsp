@@ -46,7 +46,7 @@
 
 
 <button type="button"
-	onclick="javascript: relativeRedir('xomp/company/list.do?auditId=${xomp.audit.id}')">
+	onclick="javascript: relativeRedir('xomp/company/list.do?positionId=${xomp.position.id}')">
 	<spring:message code="xomp.cancel" />
 </button>
 

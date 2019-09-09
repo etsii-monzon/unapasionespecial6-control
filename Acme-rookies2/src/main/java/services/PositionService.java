@@ -15,6 +15,7 @@ import domain.Audit;
 import domain.Company;
 import domain.Position;
 import domain.Problem;
+import domain.Xomp;
 
 @Service
 @Transactional
@@ -36,6 +37,8 @@ public class PositionService {
 
 	@Autowired
 	private AuditService			auditService;
+	@Autowired
+	private XompService				xompService;
 
 
 	// SIMPLE CRUD METHODS
@@ -111,6 +114,7 @@ public class PositionService {
 		final Collection<Problem> toDelete = new ArrayList<>();
 		final Collection<Audit> toDeleteAud = new ArrayList<>();
 		final Collection<Audit> audits = this.auditService.findAll();
+		final Collection<Xomp> xomps = this.xompService.findAll();
 
 		final Company comp = this.companyService.findByPrincipal();
 		for (final Problem p2 : comp.getProblems())
@@ -124,6 +128,9 @@ public class PositionService {
 				toDeleteAud.add(a2);
 		for (final Audit a3 : toDeleteAud)
 			this.auditService.deleteAuditPosition(a3);
+		for (final Xomp x : xomps)
+			if (x.getPosition().equals(p))
+				this.xompService.delete(x);
 
 		comp.getPositions().remove(p);
 

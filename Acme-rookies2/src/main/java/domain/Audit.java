@@ -1,14 +1,11 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -23,16 +20,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Access(AccessType.PROPERTY)
 public class Audit extends DomainEntity {
 
-	private Date				moment;
-	private String				text;
-	private Integer				score;
-	private Position			position;
-	private Boolean				draftMode;
+	private Date		moment;
+	private String		text;
+	private Integer		score;
+	private Position	position;
+	private Boolean		draftMode;
+
 
 	//Relaciones
-
-	private Collection<Xomp>	xomps;
-
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@NotNull
@@ -81,15 +76,6 @@ public class Audit extends DomainEntity {
 
 	public void setDraftMode(final Boolean draftMode) {
 		this.draftMode = draftMode;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL)
-	public Collection<Xomp> getXomps() {
-		return this.xomps;
-	}
-
-	public void setXomps(final Collection<Xomp> xomps) {
-		this.xomps = xomps;
 	}
 
 }

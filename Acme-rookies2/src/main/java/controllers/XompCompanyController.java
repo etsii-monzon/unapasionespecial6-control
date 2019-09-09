@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.AuditService;
 import services.CompanyService;
+import services.PositionService;
 import services.XompService;
 import domain.Xomp;
 
@@ -30,11 +30,11 @@ public class XompCompanyController extends AbstractController {
 	@Autowired
 	CompanyService	companyService;
 	@Autowired
-	AuditService	auditService;
+	PositionService	positionService;
 
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list(@RequestParam final int auditId) {
+	public ModelAndView list(@RequestParam final int positionId) {
 		ModelAndView result;
 		Collection<Xomp> xomps;
 		boolean english = true;
@@ -43,14 +43,14 @@ public class XompCompanyController extends AbstractController {
 			english = false;
 
 		try {
-			Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.auditService.findOne(auditId).getPosition()));
-			xomps = this.auditService.findOne(auditId).getXomps();
+			Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.positionService.findOne(positionId)));
+			xomps = this.positionService.findOne(positionId).getXomps();
 
 			result = new ModelAndView("xomp/list");
 			result.addObject("xomps", xomps);
-			result.addObject("auditId", auditId);
+			result.addObject("positionId", positionId);
 
-			result.addObject("positionId", this.auditService.findOne(auditId).getPosition().getId());
+			result.addObject("positionId", this.positionService.findOne(positionId).getId());
 
 			result.addObject("requestURI", "xomp/company/list.do");
 
@@ -78,7 +78,7 @@ public class XompCompanyController extends AbstractController {
 		try {
 
 			Assert.isTrue(this.xompService.findAll().contains(xomp), "No Entity");
-			Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.auditService.findOne(xomp.getAudit().getId()).getPosition()), "No owner");
+			Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.positionService.findOne(xomp.getPosition().getId())), "No owner");
 
 			result = new ModelAndView("xomp/display");
 			result.addObject("requestURI", "xomp/company/display.do");
@@ -98,17 +98,17 @@ public class XompCompanyController extends AbstractController {
 		return result;
 	}
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView create(@RequestParam final int auditId) {
+	public ModelAndView create(@RequestParam final int positionId) {
 		ModelAndView result;
 		Xomp xomp;
 
 		try {
-			Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.auditService.findOne(auditId).getPosition()));
+			Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.positionService.findOne(positionId)));
 
-			xomp = this.xompService.create(auditId);
-			System.out.println(xomp.getAudit());
+			xomp = this.xompService.create(positionId);
+			System.out.println(xomp.getPosition());
 			result = this.createEditModelAndView(xomp);
-			result.addObject("auditId", auditId);
+			result.addObject("positionId", positionId);
 		} catch (final IllegalArgumentException e) {
 			// TODO: handle exception
 			result = new ModelAndView("misc/403");
@@ -129,7 +129,7 @@ public class XompCompanyController extends AbstractController {
 			try {
 
 				//			Assert.isTrue(xomp.isDraftMode());
-				Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.auditService.findOne(xomp.getAudit().getId()).getPosition()));
+				Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.positionService.findOne(xomp.getPosition().getId())));
 
 				Assert.notNull(xomp);
 
@@ -157,7 +157,7 @@ public class XompCompanyController extends AbstractController {
 
 		result = new ModelAndView("xomp/edit");
 		result.addObject("xomp", xomp);
-		result.addObject("auditId", xomp.getAudit().getId());
+		result.addObject("positionId", xomp.getPosition().getId());
 
 		result.addObject("message", messageCode);
 
@@ -173,10 +173,10 @@ public class XompCompanyController extends AbstractController {
 
 		} else
 			try {
-				Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.auditService.findOne(xomp.getAudit().getId()).getPosition()));
+				Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.positionService.findOne(xomp.getPosition().getId())));
 				this.xompService.save(xomp);
 
-				result = new ModelAndView("redirect:list.do?auditId=" + xomp.getAudit().getId());
+				result = new ModelAndView("redirect:list.do?positionId=" + xomp.getPosition().getId());
 			} catch (final IllegalArgumentException e) {
 				// TODO: handle exception
 				result = new ModelAndView("misc/403");
@@ -201,11 +201,11 @@ public class XompCompanyController extends AbstractController {
 			final Xomp xomp = this.xompService.findOne(xompId);
 			Assert.isTrue(xomp.isDraftMode());
 
-			Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.auditService.findOne(xomp.getAudit().getId()).getPosition()));
+			Assert.isTrue(this.companyService.findByPrincipal().getPositions().contains(this.positionService.findOne(xomp.getPosition().getId())));
 
 			this.xompService.delete(xomp);
 
-			result = new ModelAndView("redirect:list.do?auditId=" + xomp.getAudit().getId());
+			result = new ModelAndView("redirect:list.do?positionId=" + xomp.getPosition().getId());
 		} catch (final IllegalArgumentException e) {
 			// TODO: handle exception
 			result = new ModelAndView("misc/403");

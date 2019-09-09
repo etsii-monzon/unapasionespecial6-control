@@ -317,14 +317,7 @@
 		<property name="moment" value="2019/08/01 00:00" />
 		<property name="position" ref="position1" />
 		<property name="draftMode" value="false" />
-		<property name="xomps">
-			<list>
-				<ref bean="xomp1" />
-				<ref bean="xomp2" />
-
-
-			</list>
-		</property>
+		
 
 	</bean>
 	<bean id="audit11" class="domain.Audit">
@@ -333,14 +326,7 @@
 		<property name="moment" value="2019/08/01 00:00" />
 		<property name="position" ref="position2" />
 		<property name="draftMode" value="false" />
-		<property name="xomps">
-			<list>
-
-				<ref bean="xomp3" />
-				<ref bean="xomp4" />
-
-			</list>
-		</property>
+		
 
 	</bean>
 
@@ -350,7 +336,7 @@
 		<property name="status" value="PENDING" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit10" />
+		<property name="position" ref="position1" />
 
 
 
@@ -362,7 +348,7 @@
 		<property name="status" value="REJECTED" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit10" />
+		<property name="position" ref="position1" />
 
 
 	</bean>
@@ -373,7 +359,7 @@
 		<property name="status" value="ACCEPTED" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit11" />
+		<property name="position" ref="position2" />
 
 
 	</bean>
@@ -384,7 +370,7 @@
 		<property name="status" value="ALGO" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
-		<property name="audit" ref="audit11" />
+		<property name="position" ref="position2" />
 
 
 	</bean>
@@ -503,6 +489,14 @@
 		<property name="salary" value="1250.0" />
 		<property name="ticker" value="jola-2310" />
 		<property name="draftMode" value="false" />
+		<property name="xomps">
+			<list>
+				<ref bean="xomp1" />
+				<ref bean="xomp2" />
+
+
+			</list>
+		</property>
 
 	</bean>
 
@@ -516,10 +510,18 @@
 		<property name="salary" value="1000.0" />
 		<property name="ticker" value="COMPA-2310" />
 		<property name="draftMode" value="false" />
+		<property name="xomps">
+			<list>
+				<ref bean="xomp3" />
+				<ref bean="xomp4" />
+
+
+			</list>
+		</property>
 
 	</bean>
 
-	<bean id="position3" class="domain.Position">
+	<!-- <bean id="position3" class="domain.Position">
 		<property name="title" value="Ssd error" />
 		<property name="description" value="Abrir pc" />
 		<property name="deadline" value="2019/11/01 00:00" />
@@ -543,7 +545,7 @@
 		<property name="ticker" value="jola-1210" />
 		<property name="draftMode" value="true" />
 
-	</bean>
+	</bean> -->
 	<bean id="problem1" class="domain.Problem">
 		<property name="title" value="Error inicio" />
 		<property name="statement" value="statemen1" />

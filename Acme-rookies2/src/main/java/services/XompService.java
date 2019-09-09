@@ -27,12 +27,12 @@ public class XompService {
 	private CompanyService	companyService;
 
 	@Autowired
-	private AuditService	auditService;
+	private PositionService	positionService;
 
 
 	// SIMPLE CRUD METHODS
 
-	public Xomp create(final int auditId) {
+	public Xomp create(final int positionId) {
 
 		Assert.isTrue(this.companyService.checkPrincipal());
 
@@ -40,7 +40,7 @@ public class XompService {
 		quolet = new Xomp();
 
 		quolet.setTicker(this.createTicker());
-		quolet.setAudit(this.auditService.findOne(auditId));
+		quolet.setPosition(this.positionService.findOne(positionId));
 
 		return quolet;
 	}
@@ -70,8 +70,8 @@ public class XompService {
 
 		res = this.xompRepository.save(quolet);
 
-		if (!res.getAudit().getXomps().contains(res))
-			res.getAudit().getXomps().add(res);
+		if (!res.getPosition().getXomps().contains(res))
+			res.getPosition().getXomps().add(res);
 
 		return res;
 	}
@@ -81,11 +81,11 @@ public class XompService {
 		Assert.notNull(quolet);
 		Assert.isTrue(quolet.getId() != 0);
 		//Este delete solo sirve para cuando está en draftMode
-		Assert.isTrue(quolet.isDraftMode());
+		//Assert.isTrue(quolet.isDraftMode());
 
-		Assert.notNull(quolet.getAudit());
+		Assert.notNull(quolet.getPosition());
 
-		quolet.getAudit().getXomps().remove(quolet);
+		quolet.getPosition().getXomps().remove(quolet);
 
 		this.xompRepository.delete(quolet);
 	}

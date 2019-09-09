@@ -111,7 +111,7 @@
 	<div>
 
 		<button type="button"
-			onclick="javascript: relativeRedir('xomp/company/create.do?auditId=${auditId}')">
+			onclick="javascript: relativeRedir('xomp/company/create.do?positionId=${positionId}')">
 			<spring:message code="xomp.create" />
 		</button>
 	</div>
@@ -121,9 +121,9 @@
 	<acme:cancel url="audit/auditor/list.do" code="xomp.return" />
 </security:authorize>
 
-<security:authorize access="hasRole('COMPANY')">
+ <security:authorize access="hasRole('COMPANY')">
 	<button type="button"
-		onclick="javascript: relativeRedir('audit/listr.do?positionId=${positionId}')">
+		onclick="javascript: relativeRedir('position/company/list.do')">
 		<spring:message code="xomp.return" />
 	</button>
 </security:authorize>

@@ -73,13 +73,7 @@
 	</security:authorize>
 
 
-	<security:authorize access="hasRole('COMPANY')">
-		<display:column titleKey="audit.quolets">
-			<a href="xomp/company/list.do?auditId=${row.id}"> <spring:message
-					code="audit.quolets" />
-			</a>
-		</display:column>
-	</security:authorize>
+	
 
 </display:table>
 <security:authorize access="hasRole('AUDITOR')">

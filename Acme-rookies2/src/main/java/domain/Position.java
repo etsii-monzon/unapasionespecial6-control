@@ -6,9 +6,11 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Index;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -32,6 +34,8 @@ public class Position extends DomainEntity {
 	private Double				salary;
 	private String				ticker;
 	private boolean				draftMode;
+
+	private Collection<Xomp>	xomps;
 
 
 	@NotBlank
@@ -113,6 +117,15 @@ public class Position extends DomainEntity {
 
 	public void setDraftMode(final boolean draftMode) {
 		this.draftMode = draftMode;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<Xomp> getXomps() {
+		return this.xomps;
+	}
+
+	public void setXomps(final Collection<Xomp> xomps) {
+		this.xomps = xomps;
 	}
 
 }

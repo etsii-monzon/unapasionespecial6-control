@@ -19,7 +19,7 @@
 	<%-- 	<form:hidden path="publicationMoment" />
  --%>
 	<form:hidden path="ticker" />
-	<form:hidden path="audit" />
+	<form:hidden path="position" />
 
 
 
@@ -53,9 +53,9 @@
 	<br />
 
 	<acme:submit name="save" code="xomp.save" />
-	<acme:cancel url="xomp/company/list.do?auditId=${auditId }"
+	 <acme:cancel url="xomp/company/list.do?positionId=${positionId }"
 		code="xomp.cancel" />
-	<br />
+	<br /> 
 
 
 

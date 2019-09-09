@@ -34,10 +34,10 @@ public class XompServiceTest extends AbstractTest {
 
 			{ //User authenticated as a COMPANY create a xomp-- WORK-POSITIVE
 
-				"company1", "TEST", "PENDING", "audit10", null
+				"company1", "TEST", "PENDING", "position1", null
 			}, { //User authenticated as a AUDITOR create a xomp--DOESN'T WORK-NEGATIVE
 
-				"auditor1", "TEST", "PENDING", "audit10", IllegalArgumentException.class
+				"auditor1", "TEST", "PENDING", "position1", IllegalArgumentException.class
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)
@@ -45,7 +45,7 @@ public class XompServiceTest extends AbstractTest {
 			this.createAndSaveXompTemplate((String) testingData[i][0], (String) testingData[i][1], (String) testingData[i][2], (String) testingData[i][3], (Class<?>) testingData[i][4]);
 
 	}
-	protected void createAndSaveXompTemplate(final String user, final String body, final String status, final String audit, final Class<?> expected) {
+	protected void createAndSaveXompTemplate(final String user, final String body, final String status, final String position, final Class<?> expected) {
 
 		Class<?> caught;
 		caught = null;
@@ -54,7 +54,7 @@ public class XompServiceTest extends AbstractTest {
 
 			this.authenticate(user);
 
-			final Xomp lr = this.xompService.create(super.getEntityId(audit));
+			final Xomp lr = this.xompService.create(super.getEntityId(position));
 
 			lr.setBody(body);
 			lr.setDraftMode(true);
