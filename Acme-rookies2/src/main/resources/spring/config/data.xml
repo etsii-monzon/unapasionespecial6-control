@@ -20,7 +20,7 @@
 	<jpa:repositories base-package="security" />
 
 	<!-- Data source -->
-<!-- 
+ 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
@@ -30,10 +30,10 @@
 		<property name="minPoolSize" value="1" />
 		<property name="maxPoolSize" value="5" />
 	</bean>
-	 -->
+	
 		<!-- CLEVER -->
 
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl"
@@ -42,7 +42,7 @@
 		<property name="password" value="ExDMaFYGg5upS3mmSgkO" />
 		<property name="minPoolSize" value="1" />
 		<property name="maxPoolSize" value="5" />
-	</bean>
+	</bean> -->
 
 	<!-- JPA -->
 
