@@ -107,6 +107,7 @@ public class XompService {
 		//		month = new SimpleDateFormat("MM").format(Calendar.getInstance().getTime());
 		//		day = new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
 
+		//
 		final String secuencia = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		final String secuencia2 = "0123456789";
 
@@ -128,12 +129,12 @@ public class XompService {
 
 	}
 
-	public Double avgNumberXompsPerAudit() {
-		return this.xompRepository.avgNumberXompsPerAudit();
+	public Double avgNumberXompsPerPos() {
+		return this.xompRepository.avgNumberXompsPerPos();
 	}
 
-	public Double stdNumberXompsPerAudit() {
-		return this.xompRepository.stdNumberXompsPerAudit();
+	public Double stdNumberXompsPerPos() {
+		return this.xompRepository.stdNumberXompsPerPos();
 	}
 	public Double ratioXompsPublished() {
 		return this.xompRepository.ratioXompPublished();

@@ -33,8 +33,6 @@ public class XompCompanyController extends AbstractController {
 	AuditService	auditService;
 
 
-	//PARA AUDIT 
-
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list(@RequestParam final int auditId) {
 		ModelAndView result;

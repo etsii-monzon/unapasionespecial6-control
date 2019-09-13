@@ -149,8 +149,8 @@ public class AdministratorController extends AbstractController {
 	public ModelAndView list() {
 		final ModelAndView result;
 
-		final Double avgXompsAud = this.xompService.avgNumberXompsPerAudit();
-		final Double stdXompsAud = this.xompService.stdNumberXompsPerAudit();
+		final Double avgXompsPos = this.xompService.avgNumberXompsPerPos();
+		final Double stdXompsPos = this.xompService.stdNumberXompsPerPos();
 		final Double ratioXompsPublished = this.xompService.ratioXompsPublished();
 		final Double ratioXompsUnpublished = this.xompService.ratioXompsUnpublished();
 
@@ -235,8 +235,8 @@ public class AdministratorController extends AbstractController {
 		result.addObject("stdDevItemsProv", stdDevItemsProv);
 		result.addObject("topProvs", topProvs);
 
-		result.addObject("avgXompsAud", avgXompsAud);
-		result.addObject("stdXompsAud", stdXompsAud);
+		result.addObject("avgXompsPos", avgXompsPos);
+		result.addObject("stdXompsPos", stdXompsPos);
 		result.addObject("ratioXompsPublished", ratioXompsPublished);
 		result.addObject("ratioXompsUnpublished", ratioXompsUnpublished);
 

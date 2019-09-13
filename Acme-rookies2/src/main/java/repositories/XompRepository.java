@@ -14,10 +14,10 @@ public interface XompRepository extends JpaRepository<Xomp, Integer> {
 	Xomp checkTicker(String ticker);
 
 	@Query("select avg(1.0*(select count(r) from c.xomps r where r.draftMode=false)) from Position c")
-	Double avgNumberXompsPerAudit();
+	Double avgNumberXompsPerPos();
 
 	@Query("select stddev(1.0*(select count(r) from c.xomps r where r.draftMode=false)) from Position c")
-	Double stdNumberXompsPerAudit();
+	Double stdNumberXompsPerPos();
 
 	@Query("select sum(case when p.draftMode = 1 then 1.0 else 0.0 end)/count(p) from Xomp p")
 	Double ratioXompUnpublished();

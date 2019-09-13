@@ -13,17 +13,17 @@
 <!-- Listing grid -->
 
 <h3>
-	<spring:message code="administrator.xompsAudit" />
+	<spring:message code="administrator.xompsPos" />
 </h3>
 <p>
-	<spring:message code="administrator.avgXompsAud" />
+	<spring:message code="administrator.avgXompsPos" />
 	:
-	<fmt:formatNumber value="${avgXompsAud}" />
+	<fmt:formatNumber value="${avgXompsPos}" />
 </p>
 <p>
-	<spring:message code="administrator.stdXompsAud" />
+	<spring:message code="administrator.stdXompsPos" />
 	:
-	<fmt:formatNumber value="${stdXompsAud}" />
+	<fmt:formatNumber value="${stdXompsPos}" />
 </p>
 <p>
 	<spring:message code="administrator.ratioXompsPublished" />
