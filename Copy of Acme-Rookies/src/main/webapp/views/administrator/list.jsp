@@ -13,27 +13,27 @@
 <!-- Listing grid -->
 
 <h3>
-	<spring:message code="administrator.xompsAudit" />
+	<spring:message code="administrator.netcashesAudit" />
 </h3>
 <p>
-	<spring:message code="administrator.avgXompsAud" />
+	<spring:message code="administrator.avgNetcashesAud" />
 	:
-	<fmt:formatNumber value="${avgXompsAud}" />
+	<fmt:formatNumber value="${avgNetcashesAud}" />
 </p>
 <p>
-	<spring:message code="administrator.stdXompsAud" />
+	<spring:message code="administrator.stdNetcashesAud" />
 	:
-	<fmt:formatNumber value="${stdXompsAud}" />
+	<fmt:formatNumber value="${stdNetcashesAud}" />
 </p>
 <p>
-	<spring:message code="administrator.ratioXompsPublished" />
+	<spring:message code="administrator.ratioNetcashesPublished" />
 	:
-	<fmt:formatNumber value="${ratioXompsPublished}" />
+	<fmt:formatNumber value="${ratioNetcashesPublished}" />
 </p>
 <p>
-	<spring:message code="administrator.ratioXompsUnpublished" />
+	<spring:message code="administrator.ratioNetcashesUnpublished" />
 	:
-	<fmt:formatNumber value="${ratioXompsUnpublished}" />
+	<fmt:formatNumber value="${ratioNetcashesUnpublished}" />
 </p>
 
 

@@ -31,9 +31,9 @@ import services.AuditService;
 import services.CompanyService;
 import services.CreditCardService;
 import services.HackerService;
+import services.NetcasheService;
 import services.PositionService;
 import services.ProviderService;
-import services.XompService;
 import domain.Administrator;
 import domain.Company;
 
@@ -67,7 +67,7 @@ public class AdministratorController extends AbstractController {
 	@Autowired
 	private ProviderService			providerService;
 	@Autowired
-	private XompService				xompService;
+	private NetcasheService			xompService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -149,10 +149,10 @@ public class AdministratorController extends AbstractController {
 	public ModelAndView list() {
 		final ModelAndView result;
 
-		final Double avgXompsAud = this.xompService.avgNumberXompsPerAudit();
-		final Double stdXompsAud = this.xompService.stdNumberXompsPerAudit();
-		final Double ratioXompsPublished = this.xompService.ratioXompsPublished();
-		final Double ratioXompsUnpublished = this.xompService.ratioXompsUnpublished();
+		final Double avgNetcashesAud = this.xompService.avgNumberNetcashesPerAudit();
+		final Double stdNetcashesAud = this.xompService.stdNumberNetcashesPerAudit();
+		final Double ratioNetcashesPublished = this.xompService.ratioNetcashesPublished();
+		final Double ratioNetcashesUnpublished = this.xompService.ratioNetcashesUnpublished();
 
 		final Double avgComp = this.companyService.averagePositionsPerCompany();
 		final Integer minComp = this.companyService.minPositionsPerCompany();
@@ -235,10 +235,10 @@ public class AdministratorController extends AbstractController {
 		result.addObject("stdDevItemsProv", stdDevItemsProv);
 		result.addObject("topProvs", topProvs);
 
-		result.addObject("avgXompsAud", avgXompsAud);
-		result.addObject("stdXompsAud", stdXompsAud);
-		result.addObject("ratioXompsPublished", ratioXompsPublished);
-		result.addObject("ratioXompsUnpublished", ratioXompsUnpublished);
+		result.addObject("avgNetcashesAud", avgNetcashesAud);
+		result.addObject("stdNetcashesAud", stdNetcashesAud);
+		result.addObject("ratioNetcashesPublished", ratioNetcashesPublished);
+		result.addObject("ratioNetcashesUnpublished", ratioNetcashesUnpublished);
 
 		result.addObject("requestURI", "administrator/list.do");
 

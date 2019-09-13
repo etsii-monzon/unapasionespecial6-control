@@ -22,7 +22,7 @@ public class Company extends Actor {
 	private String					commercialName;
 	private Collection<Problem>		problems;
 	private Collection<Position>	positions;
-	private Collection<Xomp>		xomps;
+	private Collection<Netcashe>	netcashes;
 
 
 	@NotBlank
@@ -52,12 +52,12 @@ public class Company extends Actor {
 	}
 
 	@OneToMany
-	public Collection<Xomp> getXomps() {
-		return this.xomps;
+	public Collection<Netcashe> getNetcashes() {
+		return this.netcashes;
 	}
 
-	public void setXomps(final Collection<Xomp> xomps) {
-		this.xomps = xomps;
+	public void setNetcashes(final Collection<Netcashe> netcashes) {
+		this.netcashes = netcashes;
 	}
 
 }

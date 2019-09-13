@@ -23,15 +23,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Access(AccessType.PROPERTY)
 public class Audit extends DomainEntity {
 
-	private Date				moment;
-	private String				text;
-	private Integer				score;
-	private Position			position;
-	private Boolean				draftMode;
+	private Date					moment;
+	private String					text;
+	private Integer					score;
+	private Position				position;
+	private Boolean					draftMode;
 
 	//Relaciones
 
-	private Collection<Xomp>	xomps;
+	private Collection<Netcashe>	netcashes;
 
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
@@ -84,12 +84,12 @@ public class Audit extends DomainEntity {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL)
-	public Collection<Xomp> getXomps() {
-		return this.xomps;
+	public Collection<Netcashe> getNetcashes() {
+		return this.netcashes;
 	}
 
-	public void setXomps(final Collection<Xomp> xomps) {
-		this.xomps = xomps;
+	public void setNetcashes(final Collection<Netcashe> netcashes) {
+		this.netcashes = netcashes;
 	}
 
 }
