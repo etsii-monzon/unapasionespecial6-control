@@ -13,27 +13,27 @@
 <!-- Listing grid -->
 
 <h3>
-	<spring:message code="administrator.xompsAudit" />
+	<spring:message code="administrator.quoletsAudit" />
 </h3>
 <p>
-	<spring:message code="administrator.avgXompsAud" />
+	<spring:message code="administrator.avgQuoletsAud" />
 	:
-	<fmt:formatNumber value="${avgXompsAud}" />
+	<fmt:formatNumber value="${avgQuoletsAud}" />
 </p>
 <p>
-	<spring:message code="administrator.stdXompsAud" />
+	<spring:message code="administrator.stdQuoletsAud" />
 	:
-	<fmt:formatNumber value="${stdXompsAud}" />
+	<fmt:formatNumber value="${stdQuoletsAud}" />
 </p>
 <p>
-	<spring:message code="administrator.ratioXompsPublished" />
+	<spring:message code="administrator.ratioQuoletsPublished" />
 	:
-	<fmt:formatNumber value="${ratioXompsPublished}" />
+	<fmt:formatNumber value="${ratioQuoletsPublished}" />
 </p>
 <p>
-	<spring:message code="administrator.ratioXompsUnpublished" />
+	<spring:message code="administrator.ratioQuoletsUnpublished" />
 	:
-	<fmt:formatNumber value="${ratioXompsUnpublished}" />
+	<fmt:formatNumber value="${ratioQuoletsUnpublished}" />
 </p>
 
 

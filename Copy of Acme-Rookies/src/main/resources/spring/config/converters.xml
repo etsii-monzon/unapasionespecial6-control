@@ -29,7 +29,7 @@
 		<bean class="converters.ProviderToStringConverter" />
 		<bean class="converters.ItemToStringConverter" />
 		<bean class="converters.AuditorToStringConverter" />
-		<bean class="converters.XompToStringConverter" />
+		<bean class="converters.QuoletToStringConverter" />
 
 
 
@@ -47,8 +47,7 @@
 		<bean class="converters.StringToProviderConverter" />
 		<bean class="converters.StringToItemConverter" />
 		<bean class="converters.StringToAuditorConverter" />
-
-		<bean class="converters.StringToXompConverter" />
+		<bean class="converters.StringToQuoletConverter" />
 
 
 

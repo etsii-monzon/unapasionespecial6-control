@@ -31,7 +31,7 @@ public class Audit extends DomainEntity {
 
 	//Relaciones
 
-	private Collection<Xomp>	xomps;
+	private Collection<Quolet>	quolets;
 
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
@@ -84,12 +84,12 @@ public class Audit extends DomainEntity {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL)
-	public Collection<Xomp> getXomps() {
-		return this.xomps;
+	public Collection<Quolet> getQuolets() {
+		return this.quolets;
 	}
 
-	public void setXomps(final Collection<Xomp> xomps) {
-		this.xomps = xomps;
+	public void setQuolets(final Collection<Quolet> quolets) {
+		this.quolets = quolets;
 	}
 
 }

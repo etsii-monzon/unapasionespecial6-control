@@ -317,10 +317,10 @@
 		<property name="moment" value="2019/08/01 00:00" />
 		<property name="position" ref="position1" />
 		<property name="draftMode" value="false" />
-		<property name="xomps">
+		<property name="quolets">
 			<list>
-				<ref bean="xomp1" />
-				<ref bean="xomp2" />
+				<ref bean="quolet1" />
+				<ref bean="quolet2" />
 
 
 			</list>
@@ -333,21 +333,21 @@
 		<property name="moment" value="2019/08/01 00:00" />
 		<property name="position" ref="position2" />
 		<property name="draftMode" value="false" />
-		<property name="xomps">
+		<property name="quolets">
 			<list>
 
-				<ref bean="xomp3" />
-				<ref bean="xomp4" />
+				<ref bean="quolet3" />
+				<ref bean="quolet4" />
 
 			</list>
 		</property>
 
 	</bean>
 
-	<bean id="xomp1" class="domain.Xomp">
-		<property name="ticker" value="15-AC25-0619" />
+	<bean id="quolet1" class="domain.Quolet">
+		<property name="name" value="190615#ACW" />
 		<property name="body" value="TEST" />
-		<property name="status" value="PENDING" />
+		<property name="status" value="TROME" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit10" />
@@ -356,10 +356,10 @@
 
 	</bean>
 
-	<bean id="xomp2" class="domain.Xomp">
-		<property name="ticker" value="15-VX25-0519" />
+	<bean id="quolet2" class="domain.Quolet">
+		<property name="name" value="190515#VXN" />
 		<property name="body" value="TEST" />
-		<property name="status" value="REJECTED" />
+		<property name="status" value="GORK" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit10" />
@@ -367,10 +367,10 @@
 
 	</bean>
 
-	<bean id="xomp3" class="domain.Xomp">
-		<property name="ticker" value="15-AC25-0518" />
+	<bean id="quolet3" class="domain.Quolet">
+		<property name="name" value="180515#ACR" />
 		<property name="body" value="TEST" />
-		<property name="status" value="ACCEPTED" />
+		<property name="status" value="STIM" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit11" />
@@ -378,10 +378,10 @@
 
 	</bean>
 
-	<bean id="xomp4" class="domain.Xomp">
-		<property name="ticker" value="15-AC15-0519" />
+	<bean id="quolet4" class="domain.Quolet">
+		<property name="name" value="190515-BTP" />
 		<property name="body" value="TEST" />
-		<property name="status" value="ALGO" />
+		<property name="status" value="ZURK" />
 		<property name="optionalPicture" value="http://www.photo.com" />
 		<property name="draftMode" value="false" />
 		<property name="audit" ref="audit11" />
@@ -607,10 +607,10 @@
 
 			</list>
 		</property>
-		<property name="xomps">
+		<property name="quolets">
 			<list>
-				<ref bean="xomp1" />
-				<ref bean="xomp2" />
+				<ref bean="quolet1" />
+				<ref bean="quolet2" />
 			</list>
 		</property>
 
@@ -639,10 +639,10 @@
 
 			</list>
 		</property>
-		<property name="xomps">
+		<property name="quolets">
 			<list>
-				<ref bean="xomp3" />
-				<ref bean="xomp4" />
+				<ref bean="quolet3" />
+				<ref bean="quolet4" />
 			</list>
 		</property>
 

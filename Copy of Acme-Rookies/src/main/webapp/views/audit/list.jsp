@@ -66,7 +66,7 @@
 
 	<security:authorize access="hasRole('AUDITOR')">
 		<display:column titleKey="audit.quolets">
-			<a href="xomp/auditor/list.do?auditId=${row.id}"> <spring:message
+			<a href="quolet/auditor/list.do?auditId=${row.id}"> <spring:message
 					code="audit.quolets" />
 			</a>
 		</display:column>
@@ -75,7 +75,7 @@
 
 	<security:authorize access="hasRole('COMPANY')">
 		<display:column titleKey="audit.quolets">
-			<a href="xomp/company/list.do?auditId=${row.id}"> <spring:message
+			<a href="quolet/company/list.do?auditId=${row.id}"> <spring:message
 					code="audit.quolets" />
 			</a>
 		</display:column>

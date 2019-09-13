@@ -81,10 +81,10 @@
 		<security:intercept-url pattern="/audit/auditor/**"
 			access="hasRole('AUDITOR')" />
 
-		<security:intercept-url pattern="/xomp/auditor/**"
+		<security:intercept-url pattern="/quolet/auditor/**"
 			access="hasRole('AUDITOR')" />
 
-		<security:intercept-url pattern="/xomp/company/**"
+		<security:intercept-url pattern="/quolet/company/**"
 			access="hasRole('COMPANY')" />
 
 		<security:intercept-url pattern="/item/**"
