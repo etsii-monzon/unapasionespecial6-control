@@ -46,7 +46,7 @@ public class AuditServiceTest extends AbstractTest {
 				null, "audit1", IllegalArgumentException.class
 			}, {//User authenticated as a auditor  delete a audit-- WORK
 
-				"auditor", "audit1", null
+				"auditor1", "audit1", null
 			}, {//User authenticated as a rookie try to delete a audit-- DOESN'T WORK9
 
 				"rookie", "audit1", IllegalArgumentException.class
@@ -229,7 +229,7 @@ public class AuditServiceTest extends AbstractTest {
 				"auditor", "audit1", null
 			}, {//User authenticated as a company try to display a audit-- WORK
 
-				"company", "audit1", null
+				"company", "audit1", IllegalArgumentException.class
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)

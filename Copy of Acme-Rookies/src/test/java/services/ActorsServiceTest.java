@@ -171,9 +171,6 @@ public class ActorsServiceTest extends AbstractTest {
 	public void actorsListPositionsDriver() {
 		final Object testingData[][] = {
 			{
-				//An actor who  not authenticated - WORK
-				null, null
-			}, {
 				//An actor who is hacker- WORK
 				"rookie", null
 			}, {
@@ -225,9 +222,7 @@ public class ActorsServiceTest extends AbstractTest {
 	public void actorsListCompaniesDriver() {
 		final Object testingData[][] = {
 			{
-				//An actor who  not authenticated - WORK
-				null, null
-			}, {
+
 				//An actor who is hacker- WORK
 				"rookie", null
 			}, {
@@ -287,7 +282,7 @@ public class ActorsServiceTest extends AbstractTest {
 				"rookie", "keyword", null
 			}, {
 				//An actor who is  company- WORK
-				"company", "keyword", null
+				"company1", "keyword", null
 			}, {
 				//An actor who is administrator- WORK
 				"admin", "keyword", null

@@ -34,10 +34,10 @@ public class QuoletServiceTest extends AbstractTest {
 
 			{ //User authenticated as a COMPANY create a quolet-- WORK
 
-				"company1", "TEST", "PENDING", "audit10", null
+				"company1", "TEST", "TROME", "audit10", null
 			}, { //User authenticated as a AUDITOR create a quolet--DOESN'T WORK
 
-				"auditor1", "TEST", "PENDING", "audit10", IllegalArgumentException.class
+				"auditor1", "TEST", "TROME", "audit10", IllegalArgumentException.class
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)

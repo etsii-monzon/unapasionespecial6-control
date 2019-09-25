@@ -87,12 +87,12 @@ public class CompanyService {
 	public Collection<Company> findAll() {
 		Collection<Company> companies;
 		companies = this.companyRepository.findAll();
-		Assert.notNull(companies);
+		//Assert.notNull(companies);
 		return companies;
 
 	}
 	public Company findOne(final int companyId) {
-		Assert.notNull(companyId);
+		//Assert.notNull(companyId);
 		Company c;
 		c = this.companyRepository.findOne(companyId);
 		return c;

@@ -73,7 +73,7 @@ public class PositionService {
 	}
 	public Position findOne(final int positionId) {
 
-		Assert.notNull(positionId);
+		//Assert.notNull(positionId);
 		Position pos;
 		pos = this.positionRepository.findOne(positionId);
 
